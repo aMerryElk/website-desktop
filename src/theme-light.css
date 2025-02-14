@@ -1,0 +1,17 @@
+/* Overrides for when light theme is used */
+
+:root {
+	color-scheme: light;
+
+	--color-main-fg:	#1e1e1e;
+	--color-main-bg:	#fff;
+	--color-aux-bg:		#aaa;
+}
+.App {
+	background: url('/wallpaper1.jpg') no-repeat center;
+	background-size: cover;
+}
+
+.desktop {
+	backdrop-filter: invert(1);
+}

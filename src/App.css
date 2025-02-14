@@ -1,0 +1,11 @@
+.App {
+  /* text-align: center; */
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+button {
+  border-radius: 0;
+  font-family: inherit;
+}

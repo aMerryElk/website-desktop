@@ -1,0 +1,16 @@
+/* Selection outside content containers feels janky, so we disable it */
+:root { user-select: none; }
+.content {
+	user-select: text;
+	* { user-select: inherit; }
+}
+
+body {
+	margin: 0;
+}
+
+code {
+	font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+		monospace;
+}
+

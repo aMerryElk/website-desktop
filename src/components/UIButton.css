@@ -1,0 +1,7 @@
+.ui-button * {
+	cursor: pointer;
+}
+
+.button-square {
+	flex-shrink: 0;
+}

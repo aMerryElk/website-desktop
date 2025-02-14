@@ -1,0 +1,11 @@
+.desktop {
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+}
+
+/* Container for desktop icons */
+.desktop-icons {
+	display: flex;
+	flex-direction: column;
+}

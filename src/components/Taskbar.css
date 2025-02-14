@@ -1,0 +1,109 @@
+#taskbar {
+	/* width: 100%; */
+	height: 5%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+#taskbar-windows {
+	display: flex;
+	align-items: center;
+	flex: 1 1 auto;
+	min-width: 0;
+	overflow: scroll;
+	
+	.item {
+		display: flex;
+		flex-shrink: 1;
+		flex-wrap: wrap; /*Allows the text to disappear into overflow if below its flex-basis*/
+		justify-content: center;
+		align-items: center;
+		min-width: 0;
+		overflow: hidden;
+
+		.icon {
+			flex-shrink: 0;
+		}
+
+		span {
+			flex-grow: 1;
+			flex-basis: 1.5em;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			line-clamp: 2;
+
+			/* I hate this, but it's the only way line-clamp works */
+			display: -webkit-box;
+			-webkit-line-clamp: 2;
+			-webkit-box-orient: vertical;
+		}
+	}
+}
+
+
+
+
+/* Default styles */
+#taskbar {
+	height: 3em;
+	box-shadow: 0 5px 0 rgba(0,0,0, 0.4);
+	/* color: white; */
+	/* background-color: #1e1e1e; */
+	gap: 1em;
+
+	> :first-child {
+		margin-left: 1em;
+	}
+	> :last-child {
+		margin-right: 1em;
+	}
+}
+
+.button-square {
+	height: 24px;
+	width: 24px;
+	border: none;
+	background-color: transparent;
+}
+
+#taskbar-left {
+	flex: 0 0 auto;
+}
+
+#taskbar-windows {
+	gap: 0.5em;
+	text-align: start;
+
+	.item {
+		height: 3em;
+		/* padding: 0; */
+		min-width: 40px;
+		
+		.icon {
+			margin: 6px;
+			width: 24px;
+		}
+		
+		span {
+			align-content: center;
+			margin-right: 0.5em
+		}
+	}
+}
+
+#clock {
+	.icon {
+		width:	12px;
+		height: 12px;
+	}
+}
+
+#taskbar-tray {
+	flex: 0 0 auto;
+
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+	gap: 0.5em;
+}

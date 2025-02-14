@@ -1,0 +1,16 @@
+#clock {
+	display: flex;
+	align-items: center;
+	padding: 0;
+	cursor: pointer;
+
+	.icon {
+		min-width: 1em;
+	}
+}
+
+#clock {
+	.icon {
+		margin-right: 0.3em;
+	}
+}

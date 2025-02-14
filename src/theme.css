@@ -1,0 +1,117 @@
+@font-face {
+	font-family: 'PressStart2P-Regular';
+	src: url('/fonts/PressStart2P-Regular.ttf');
+}
+
+:root {
+	color-scheme: dark;
+
+	--color-main-fg: #fff;
+	--color-main-bg: #1e1e1e;
+	--color-aux-bg: #444;
+	
+	--font-default: "PressStart2P-Regular";
+	--trans-pink: #f4a9b8 /* #f9a */;
+	--trans-blue: #5bcefa /* #6df */;
+	--trans-fill-v: linear-gradient( to right, var(--trans-blue) 20%, var(--trans-pink) 20% 40%, white 40% 60%, var(--trans-pink) 60% 80%, var(--trans-blue) 80% );
+	--pride-fill-v: linear-gradient(
+		to right,
+		red		20%,
+		orange	20% 40%,
+		yellow	40% 60%,
+		green	60% 80%,
+		blue		80%
+		violet
+	);
+
+	--desktop-icon-size: 48px;
+	--desktop-icon-overflow: calc(var(--desktop-icon-size)*0.5);
+	--desktop-icon-spacing: 32px;
+	--desktop-icon-label-font-size: 12px;
+	
+	--taskbar-bg: var(--color-main-bg);
+
+	--window-frame-bg: var(--color-aux-bg);
+	--window-frame-fg: var(--color-main-fg);
+	--window-frame-thickness: 5px;
+}
+.App {
+	background: url('/wallpaper1.jpg') no-repeat center;
+	background-size: cover;
+	font-family: var(--font-default);
+}
+.content {
+	background-color: var(--color-main-bg);
+}
+
+.desktop {
+	/* background-color: rgba(25, 25, 25, 0.8); */
+	background-color: rgb(from var(--color-main-bg) r g b / 0.8);
+
+	.desktop-icons {
+		margin: var(--desktop-icon-spacing);
+		gap: var(--desktop-icon-spacing);
+		
+		.item {
+			max-width: calc(var(--desktop-icon-size) + 2*var(--desktop-icon-overflow));
+			
+			.icon {
+				max-width: var(--desktop-icon-size);
+				margin-left: var(--desktop-icon-overflow);
+				margin-right: var(--desktop-icon-overflow);
+				width: var(--desktop-icon-size);
+			}
+			.label {
+				font-family: "PressStart2P-Regular";
+				font-size: var(--desktop-icon-label-font-size);
+			}
+		}
+	}
+}
+
+#taskbar {
+	background-color: var(--taskbar-bg);
+}
+
+
+.window {
+	border-color: var(--window-frame-bg);
+	background-color: auto;
+
+	padding-left: var(--window-frame-thickness);
+	padding-right: var(--window-frame-thickness);
+	padding-bottom: var(--window-frame-thickness);
+
+	background: var(--window-frame-bg);
+}
+
+.pride {
+	background: var(--trans-fill-v);
+
+	#window-info
+	, > span
+	/* , .content */
+	{
+		background: rgba(25, 25, 25, 0.5);
+	}
+}
+
+
+
+
+/* .window.pride {
+	border-color: var(--trans-blue);
+	.titlebar {
+		color: white;
+		background: var(--trans-pink);
+	}
+	#window-controls button {
+		background-color: var(--trans-blue);
+	}
+} */
+
+
+
+
+
+

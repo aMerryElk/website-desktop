@@ -1,0 +1,81 @@
+.window {
+	/* Make sure the window fills the draggable wrapper element */
+	position: absolute;
+	top: 0; right: 0; left: 0; bottom: 0;
+
+	display: flex;
+	flex-direction: column;
+	overflow: hidden;
+
+	.content {
+		flex-grow: 1;
+		overflow: scroll;
+	}
+	.titlebar {
+		flex: 0 0 auto;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		cursor: move;
+	}
+	#window-info {
+		display: flex;
+		flex-grow: 1;
+		justify-content: start;
+		align-items: center;
+		text-align: left;
+		overflow: hidden;
+	}
+	#window-controls {
+		display: flex;
+		flex-shrink: 0;
+		flex-direction: row-reverse;
+		justify-content: space-evenly;
+		
+		button {
+			border-color: inherit;
+			color: inherit;
+			cursor: pointer;
+		}
+	}
+	
+	/* Maximize and minimize buttons are disabled by default */
+	:not(.enable-maxim) button#maxim { display: none; }
+	:not(.enable-minim) button#minim { display: none; }
+}
+.disable-close button#close { display: none; }
+
+
+
+/* Default theming */
+.window {
+	background-color: #444;
+	padding: 0 5px 5px 5px;
+	box-shadow: 10px 10px 0px rgba(0,0,0, 0.4);
+
+	.titlebar {
+		padding: 0.25em 0;
+		gap: 0.5em;
+
+		#window-info {
+			gap: inherit;
+
+			.icon {
+				flex-shrink: 0;
+				width: 24px; height: 24px;
+			}
+			span { text-wrap: nowrap; }
+		}
+	}
+
+	#window-controls {
+		gap: inherit;
+	
+		button {
+			padding: 0;
+			width: 2em;
+			height: 2em;
+			cursor: pointer;
+		}
+	}
+}
