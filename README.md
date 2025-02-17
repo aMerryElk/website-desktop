@@ -8,7 +8,7 @@ Uses Vite for development.
 ## To do
 - [x] Windows
   - [x] floating/dragging/resizing (using react-rnd)
-  - [ ] focus management
+  - [x] focus management
   - [ ] tiling
   - [ ] maximizing
 - [x] Taskbar
@@ -19,3 +19,11 @@ Uses Vite for development.
 - [ ] File manager 'app'
 - [ ] Multi-lang support
 - [ ] Migrate to TypeScript (?)
+
+
+## Using the project
+If you use NixOS, simply open the folder in a terminal and run `nix-shell`. ~~It should take care of installing the exact version of node used to write the project~~ **TODO: switch to a nix flake**
+
+Otherwise, make sure NodeJS and NPM are installed, then open the folder in a terminal and run `npm install`.
+
+Once either of those are done, you can use `npm run dev` to open a local live development server or `npm run build` to build the project into the `dist` folder.

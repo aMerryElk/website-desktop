@@ -38,12 +38,11 @@
 			cursor: pointer;
 		}
 	}
-	
-	/* Maximize and minimize buttons are disabled by default */
-	:not(.enable-maxim) button#maxim { display: none; }
-	:not(.enable-minim) button#minim { display: none; }
 }
-.disable-close button#close { display: none; }
+.window.disable-close 			button#close { display: none; }
+/* Maximize and minimize buttons are disabled by default */
+.window:not(.enable-maxim)	button#maxim { display: none; }
+.window:not(.enable-minim)	button#minim { display: none; }
 
 
 

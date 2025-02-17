@@ -39,6 +39,9 @@
 			-webkit-box-orient: vertical;
 		}
 	}
+	.item.focused {
+		border-color: white;
+	}
 }
 
 

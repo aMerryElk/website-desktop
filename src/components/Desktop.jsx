@@ -9,49 +9,43 @@ import Blog		from '/src/applications/Blog';
 import { IconDesktopGithub, IconDesktopBlog } from '/src/assets/icons';
 import './Desktop.css';
 
+
 export default function Desktop() {
 
 	const [windows, setWindows] = useState([]);
+	const [focusStack, setFocusStack] = useState([]);
 	const [selectedFiles, setSelectedFiles] = useState([]);
 
-	const [files, setFiles] = useState([
-		{name: "Personal Github",
-			IconComponent: IconDesktopGithub,
-			attrs: { onDoubleClick: () => openWindow(Github) }
-		},
-		{name: "My Blog",
-			IconComponent: IconDesktopBlog,
-			attrs: { onDoubleClick: () => openWindow(Blog) }
-		}
-	]);
+	const [files, setFiles] = useState([{
+		name: "Personal Github",
+		IconComponent: IconDesktopGithub,
+		attrs: { onDoubleClick: () => openWindow(Github) }
+		}, {
+		name: "My Blog",
+		IconComponent: IconDesktopBlog,
+		attrs: { onDoubleClick: () => openWindow(Blog) }
+	}]);
 
-	const getWindow = id => {
-		return windows.filter(win => win.id === id)
+	function getWindow(id) {
+		return windows.findLast(win => win.id === id)
 	}
 
-	const openWindow = ( win, overrides={} ) => {
-		// const props = {...win.props, ...overrides.props}
+	function openWindow(win, overrides={}) {
+		const id = Date.now();
 		setWindows(prev => [...prev, {
-			id: Date.now(),
-			onClose: closeWindow,
+			id: id,
 			...win, ...overrides,
-			// props: props,
 		}]);
+		setFocusStack(prev => [...prev, id]);
 	};
 
-	const closeWindow = id => {
+	function closeWindow(id) {
+		setFocusStack(prev => prev.filter(val => val !== id));
 		setWindows(prev => prev.filter(win => win.id !== id));
 	};
 
-	const focusWindow = id => {
-		const oldFocus = windows.at(-1);
-		const newFocus = getWindow(id);
-		oldFocus["focused"] = false;
-		newFocus["focused"] = true;
-		newFocus.windowProps["additionalClasses"] = [ "pride" ];
-
-
-		setWindows([...windows.filter(win => win.id !== id), ...newFocus])
+	function focusWindow(id) {
+		setFocusStack(prev => [...prev.filter(i => i !== id), id]);
 	}
 
 	// const unselectFiles = (items = files) {
@@ -62,25 +56,28 @@ export default function Desktop() {
 		<div className="desktop"
 			// onClick={unselectAll}
 		>
-			<Taskbar windows={windows}
+			<Taskbar windows={windows} focusStack={focusStack}
 				onCloseWindow={closeWindow}
 				onFocusWindow={focusWindow}
 			/>
 
+			{/* Render desktop files */}
 			<div className="desktop-icons">
-				{/* Render desktop files */}
-				{files.map(file => (<DesktopIcon key={file.name} {...file}/>))}
+				{files.map(file => (<DesktopIcon key={file.name}
+					{...file}
+				/> ))}
 			</div>
 
 			{/* Render open windows */}
-			{windows.map(window => (	<window.Component key={window.id}
-				id={window.id}
-				onClose={window.onClose}
-				{...window.windowProps}
+			{windows.map(win => (	<win.Component key={win.id}
+				id={win.id}
+				focusStack={focusStack}
+				onClose={closeWindow}
+				onFocus={focusWindow}
+				{...win.windowProps}
 			>
-				{window.Content}
-				{/* <window.Content/> */}
-			</window.Component> ))}
+				{win.Content}
+			</win.Component> ))}
 		</div>
 	);
 };
