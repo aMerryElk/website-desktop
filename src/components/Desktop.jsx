@@ -5,8 +5,9 @@ import Taskbar from './Taskbar';
 
 import Github	from '/src/applications/Github';
 import Blog		from '/src/applications/Blog';
+import Files	from '/src/applications/Files';
 
-import { IconDesktopGithub, IconDesktopBlog } from '/src/assets/icons';
+import { IconDesktopGithub, IconDesktopBlog, IconDesktopFolder } from '/src/assets/icons';
 import './Desktop.css';
 
 
@@ -24,6 +25,10 @@ export default function Desktop() {
 		name: "My Blog",
 		IconComponent: IconDesktopBlog,
 		attrs: { onDoubleClick: () => openWindow(Blog) }
+		}, {
+		name: "Files",
+		IconComponent: IconDesktopFolder,
+		attrs: { onDoubleClick: () => openWindow(Files) }
 	}]);
 
 	function getWindow(id) {

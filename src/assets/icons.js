@@ -1,5 +1,6 @@
 export { default as IconDesktopGithub } from './icons/pixelarticons_24/github.svg?react';
 export { default as IconDesktopBlog } from './icons/pixelarticons_24/script-text.svg?react';
+export { default as IconDesktopFolder } from './icons/pixelarticons_24/folder.svg?react';
 
 export { default as IconTaskbarContact } from './icons/pixelarticons_24/mail.svg?react';
 export { default as IconTaskbarLang } from './icons/pixelarticons_24/map.svg?react';
@@ -14,3 +15,9 @@ export { default as IconWindowMinim } from './icons/pixelarticons_24/minus.svg?r
 
 export { default as IconWindowGithub } from './icons/pixelarticons_24/github.svg?react';
 export { default as IconWindowBlog } from './icons/pixelarticons_24/script-text.svg?react';
+export { default as IconWindowFileBrowser } from './icons/pixelarticons_24/folder.svg?react';
+
+export { default as IconFileListDefault } from './icons/pixelarticons_24/file.svg?react';
+export { default as IconFileListFolder } from './icons/pixelarticons_24/folder.svg?react';
+export { default as IconFileListImage } from './icons/pixelarticons_24/image.svg?react';
+export { default as IconFileListText } from './icons/pixelarticons_24/file-alt.svg?react';

@@ -11,6 +11,7 @@ Uses Vite for development.
   - [x] focus management
   - [ ] tiling
   - [ ] maximizing
+  - [ ] resize indicator
 - [x] Taskbar
   - [ ] Dark-mode toggle clock
   - [ ] window management
@@ -19,6 +20,7 @@ Uses Vite for development.
 - [ ] File manager 'app'
 - [ ] Multi-lang support
 - [ ] Migrate to TypeScript (?)
+- [ ] Make it pretty
 
 
 ## Using the project
