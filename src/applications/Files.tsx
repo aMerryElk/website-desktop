@@ -1,8 +1,8 @@
-import React from "react";
+// import React from "react";
 
-import Window from "/src/components/Window";
+import Window from "../components/Window";
 import FileBrowser from "./components/FileBrowser";
-import { IconWindowFileBrowser } from '/src/assets/icons';
+import { IconWindowFileBrowser } from '../assets/icons';
 
 const Files = {
 	windowProps: {
@@ -21,7 +21,14 @@ const Files = {
 };
 export default Files;
 
-export function WindowFileBrowser({ id, onClose, ...props }) {
+
+interface WindowFileBrowserProps {
+	id: number,
+	onClose: (id: number) => void;
+	[prop: string]: any
+}
+
+export function WindowFileBrowser({ id, onClose, ...props }: WindowFileBrowserProps) {
 	return (
 		<Window id={id} onClose={onClose} {...props}>
 			<FileBrowser/>
