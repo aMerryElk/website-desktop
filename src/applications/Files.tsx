@@ -1,14 +1,17 @@
-// import React from "react";
+import React from "react";
 
-import Window from "../components/Window";
 import FileBrowser from "./components/FileBrowser";
+import Window from "../components/Window";
+import Application from "../types/application";
+import { WindowInstance } from "../types/window";
+
 import { IconWindowFileBrowser } from '../assets/icons';
 
-const Files = {
+const Files: Application = {
 	windowProps: {
 		name: 'Files',
 		title: 'File Browser',
-		IconComponent: IconWindowFileBrowser,
+		Icon: IconWindowFileBrowser,
 		
 		width: 800, height: 550,
 		minWidth: 500, minHeight: 400,
@@ -16,22 +19,15 @@ const Files = {
 		additionalClasses: ['enable-maxim']
 	},
 
-	Component: WindowFileBrowser,
 	// Content: <FileBrowser/>,
+	// Component: Window,
+
+	Component: (props: WindowInstance) => {
+		return (
+			<Window {...props}>
+				<FileBrowser/>
+			</Window>
+		);
+	}
 };
 export default Files;
-
-
-interface WindowFileBrowserProps {
-	id: number,
-	onClose: (id: number) => void;
-	[prop: string]: any
-}
-
-export function WindowFileBrowser({ id, onClose, ...props }: WindowFileBrowserProps) {
-	return (
-		<Window id={id} onClose={onClose} {...props}>
-			<FileBrowser/>
-		</Window>
-	);
-}

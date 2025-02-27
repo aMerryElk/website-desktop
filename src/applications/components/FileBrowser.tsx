@@ -1,3 +1,4 @@
+import React from 'react';
 // import ReactMarkdown from 'react-markdown';
 import { useState } from 'react';
 import { PanelGroup, Panel, PanelResizeHandle } from "react-resizable-panels";
@@ -6,11 +7,11 @@ import './FileBrowser.css';
 import FileList from './FileList';
 
 import { IconDesktopBlog } from '../../assets/icons';
-import { FilesRoot } from '../../types/files';
+import { FilesRoot, getFilesUnder } from '../../types/files';
 
 export default function FileBrowser({}) {
-	
 	const [previewContent, setPreviewContent] = useState("PREVIEW")
+	const [workingDir, setWorkingDir] = useState<string[]>([])
 
 	const filesystem: FilesRoot = {
 		"folder1": {Icon: IconDesktopBlog},
@@ -21,27 +22,6 @@ export default function FileBrowser({}) {
 				"folder1,subfolder1,file2.bmp": {content: "some img"},
 		"folder2": {},
 			"folder2,file1.pdf": {content: "is this a .pdf?"},
-	}
-
-	/**
-	 * Filters all files in `root` downstream of `path`.
-	 * @param {object.<string[], object>} root - contains all files
-	 * @param {string[]=} path - if not provided, searches all files inside `root`
-	 * @param {number=} depth - `0`: direct children, `1`: children and grandchildren, etc. Accepts `Infinity`
-	 * @returns {object.<string[], object>}
-	 */
-	function getFilesUnder(root: FilesRoot, path: string[] = [], depth=0) {
-		const pathStr = path.toString();
-		const files = Object.entries(root).filter( ([filePathStr, _]) => {
-			if (!filePathStr.startsWith(pathStr)) return false;
-		
-			const filePath = filePathStr.split(",");
-			const fileDepth = filePath.length - path.length - 1	
-
-			return fileDepth >= 0 && fileDepth <= depth
-		})
-
-		return Object.fromEntries(files)
 	}
 
 	function onOpenFile(path: string) {

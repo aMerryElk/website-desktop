@@ -1,12 +1,20 @@
 import React from 'react';
 import './DesktopIcon.css';
 
-const DesktopIcon = ({ IconComponent, name, attrs }) => {
+import IconComponent from '../types/icon';
+
+export interface DesktopIconProps {
+	name: string,
+	Icon: IconComponent,
+	[prop: string]: any;
+}
+
+export default function DesktopIcon({ name, Icon, ...props }: DesktopIconProps) {
 	const {
-		alt = name,
+		// alt = name,
 		onClick = () => setSelected(true),
 		onDoubleClick = () => {},
-	} = attrs
+	} = props
 	
 	const [selected, setSelected] = React.useState(false)
 
@@ -14,12 +22,10 @@ const DesktopIcon = ({ IconComponent, name, attrs }) => {
     <div className={`item${selected ? " selected" : ""}`}
 			onClick={onClick}
 			onDoubleClick={(e) => {setSelected(false); onDoubleClick(e)}}
-			{...attrs}
+			{...props}
 		>
-			<IconComponent className="icon" alt={alt}/>
+			<Icon className="icon"/>
       <div className="label">{name}</div>
     </div>
   );
 };
-
-export default DesktopIcon;

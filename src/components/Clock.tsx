@@ -1,6 +1,6 @@
 import React from "react";
 import "./Clock.css"
-import { IconDarkMode, IconLightMode } from '/src/assets/icons';
+import { IconDarkMode, IconLightMode } from '../assets/icons';
 
 export default function Clock({time}) {
 	const [darkMode, setDarkMode] = React.useState(true);

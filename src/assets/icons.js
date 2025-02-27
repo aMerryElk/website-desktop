@@ -21,3 +21,5 @@ export { default as IconFileListDefault } from './icons/pixelarticons_24/file.sv
 export { default as IconFileListFolder } from './icons/pixelarticons_24/folder.svg?react';
 export { default as IconFileListImage } from './icons/pixelarticons_24/image.svg?react';
 export { default as IconFileListText } from './icons/pixelarticons_24/file-alt.svg?react';
+
+export { default as IconUIExpand } from "./icons/pixelarticons_24/chevron-right.svg?react";

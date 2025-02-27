@@ -11,3 +11,7 @@ dist-ssr
 # Editor directories and files
 .vscode/*
 # !.vscode/extensions.json
+
+REFERENCE
+src/assets/icons/help_24.aseprite
+src/assets/icons/help_24_opt.svg

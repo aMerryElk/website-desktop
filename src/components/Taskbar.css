@@ -55,6 +55,10 @@
 	/* background-color: #1e1e1e; */
 	gap: 1em;
 
+	button {
+		cursor: pointer;
+	}
+
 	> :first-child {
 		margin-left: 1em;
 	}
@@ -68,6 +72,8 @@
 	width: 24px;
 	border: none;
 	background-color: transparent;
+	padding: 0;
+	flex-shrink: 0;
 }
 
 #taskbar-left {
